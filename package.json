@@ -1,0 +1,31 @@
+{
+  "name": "react-network-quality",
+  "version": "1.0.1",
+  "description": "A React hook to monitor internet connection quality (ping and download speed).",
+  "main": "dist/useNetworkQuality.js",
+  "types": "dist/useNetworkQuality.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "react",
+    "hook",
+    "network",
+    "internet",
+    "quality",
+    "speed",
+    "bandwidth",
+    "ping",
+    "react-detect-offline"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.2",
+    "typescript": "^5.0.0"
+  }
+}
