@@ -1,6 +1,6 @@
 {
   "name": "react-network-quality",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "A React hook to monitor internet connection quality (ping and download speed).",
   "main": "dist/useNetworkQuality.js",
   "types": "dist/useNetworkQuality.d.ts",
@@ -21,6 +21,14 @@
   ],
   "author": "Your Name",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/en-atul/react-network-quality.git"
+  },
+  "bugs": {
+    "url": "https://github.com/en-atul/react-network-quality/issues"
+  },
+  "homepage": "https://github.com/en-atul/react-network-quality#readme",
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0"
   },
