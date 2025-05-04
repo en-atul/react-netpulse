@@ -51,8 +51,10 @@ jobs:
         run: |
           # Generate the changelog
           CHANGELOG=$(git log $(git describe --tags --abbrev=0 @^)..@ --pretty=format:"- %s")
-          echo "CHANGELOG=$CHANGELOG" >> $GITHUB_ENV
-          echo "Changelog created: $CHANGELOG"
+
+          # Ensure the changelog doesn't contain problematic characters
+          echo "CHANGELOG=$CHANGELOG" | sed 's/\r//' >> $GITHUB_ENV
+          echo "Changelog created."
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
