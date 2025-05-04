@@ -1,6 +1,6 @@
 {
   "name": "react-netpulse",
-  "version": "1.0.6",
+  "version": "1.0.0",
   "description": "A lightweight and efficient React hook to monitor network connectivity and performance in real-time. Measure ping latency and download speed to provide actionable insights into your internet connection's status. Perfect for improving user experience by dynamically adapting to network quality.",
   "main": "dist/useNetworkQuality.js",
   "types": "dist/useNetworkQuality.d.ts",
