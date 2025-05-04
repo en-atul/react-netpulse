@@ -52,8 +52,13 @@ jobs:
           # Generate the changelog
           CHANGELOG=$(git log $(git describe --tags --abbrev=0 @^)..@ --pretty=format:"- %s")
 
-          # Ensure the changelog doesn't contain problematic characters
-          echo "CHANGELOG=$CHANGELOG" | sed 's/\r//' >> $GITHUB_ENV
+          # Check if the changelog is empty and handle accordingly
+          if [ -z "$CHANGELOG" ]; then
+            echo "No new commits since last release."
+            CHANGELOG="No new changes."
+          fi
+
+          echo "CHANGELOG=$CHANGELOG"
           echo "Changelog created."
 
       - name: Create GitHub Release
@@ -61,7 +66,7 @@ jobs:
         with:
           tag_name: v${{ env.VERSION }}
           name: Release v${{ env.VERSION }}
-          body: ${{ env.CHANGELOG }}
+          body: ${{ steps.changelog.outputs.changelog }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
