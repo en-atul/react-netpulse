@@ -36,6 +36,9 @@
     "url": "https://github.com/en-atul/react-netpulse/issues"
   },
   "homepage": "https://github.com/en-atul/react-netpulse#readme",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0"
   },
