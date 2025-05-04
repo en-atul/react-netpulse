@@ -91,7 +91,6 @@ const measurePing = async (
 ): Promise<number> => {
   const start = performance.now();
   const response = await fetch(url, { cache: "no-store", signal });
-  console.log("[useNetworkQuality] Ping:", await response.text());
   if (!response.ok) throw new Error("Ping failed");
   return performance.now() - start;
 };
@@ -105,5 +104,5 @@ const measureDownloadSpeed = async (
   const blob = await response.blob();
   const duration = (performance.now() - start) / 1000;
   const bits = blob.size * 8;
-  return bits / duration / 1_000_000; // Mbps
+  return bits / duration / 1_000_000;
 };
