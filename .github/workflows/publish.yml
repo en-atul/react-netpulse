@@ -49,9 +49,10 @@ jobs:
       - name: Get Release Notes from Commits
         id: changelog
         run: |
-          echo "CHANGELOG<<EOF" >> $GITHUB_ENV
-          git log $(git describe --tags --abbrev=0 @^)..@ --pretty=format:"- %s" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
+          # Generate the changelog
+          CHANGELOG=$(git log $(git describe --tags --abbrev=0 @^)..@ --pretty=format:"- %s")
+          echo "CHANGELOG=$CHANGELOG" >> $GITHUB_ENV
+          echo "Changelog created: $CHANGELOG"
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
