@@ -1,4 +1,4 @@
-name: Manual Version Bump, Release & Publish
+name: Manual Release & Publish
 
 on:
   workflow_dispatch:
@@ -38,6 +38,13 @@ jobs:
 
       - name: Install dependencies using pnpm
         run: pnpm install --no-frozen-lockfile
+
+      - name: Read version from package.json
+        id: read_version
+        run: |
+          VERSION=$(jq -r .version package.json)
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "Version extracted: $VERSION"
 
       - name: Get Release Notes from Commits
         id: changelog
