@@ -1,8 +1,8 @@
-# ⚡ react-network-quality
+# ⚡ react-netpulse
 
 A modern, lightweight React hook that **actively measures your internet connection quality**—combining real-time **ping latency** and **download speed** analysis.
 
-Whether you're building a video conferencing app, a multiplayer game, or just want to warn users of poor connections, `react-network-quality` gives you the network insights `navigator.onLine` can’t.
+Whether you're building a video conferencing app, a multiplayer game, or just want to warn users of poor connections, `react-netpulse` gives you the network insights `navigator.onLine` can’t.
 
 ---
 
@@ -10,7 +10,7 @@ Whether you're building a video conferencing app, a multiplayer game, or just wa
 
 > You know how some tools only tell you if you’re online or offline? That’s cool — but what if the connection is _really slow_ or laggy?
 >
-> `react-network-quality` gives you that next-level visibility.
+> `react-netpulse` gives you that next-level visibility.
 
 Yes, libraries like [`react-detect-offline`](https://www.npmjs.com/package/react-detect-offline) are helpful for basic online checks.  
 But this hook is here when you need **actual performance** indicators.
@@ -19,21 +19,21 @@ But this hook is here when you need **actual performance** indicators.
 
 ### 🧠 Features at a Glance
 
-| Feature                        | `react-network-quality` |
-| ------------------------------ | ----------------------- |
-| ✅ Ping latency measurement    | Yes                     |
-| ✅ Download speed check        | Yes                     |
-| ✅ Real-time connection status | Yes                     |
-| ✅ React **hook-based API**    | Yes                     |
-| ✅ Fully typed (TypeScript)    | Yes                     |
-| ✅ Customizable thresholds     | Yes                     |
+| Feature                        | `react-netpulse` |
+| ------------------------------ | ---------------- |
+| ✅ Ping latency measurement    | Yes              |
+| ✅ Download speed check        | Yes              |
+| ✅ Real-time connection status | Yes              |
+| ✅ React **hook-based API**    | Yes              |
+| ✅ Fully typed (TypeScript)    | Yes              |
+| ✅ Customizable thresholds     | Yes              |
 
 ---
 
 ### 📦 Installation
 
 ```bash
-npm install react-network-quality
+npm install react-netpulse
 ```
 
 ---
@@ -41,7 +41,7 @@ npm install react-network-quality
 ### ⚙️ Usage Example
 
 ```tsx
-import { useNetworkQuality } from "react-network-quality";
+import { useNetworkQuality } from "react-netpulse";
 
 function MyComponent() {
   const status = useNetworkQuality({

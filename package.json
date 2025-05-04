@@ -1,7 +1,7 @@
 {
-  "name": "react-network-quality",
+  "name": "react-netpulse",
   "version": "1.0.6",
-  "description": "A React hook to monitor internet connection quality (ping and download speed).",
+  "description": "A lightweight and efficient React hook to monitor network connectivity and performance in real-time. Measure ping latency and download speed to provide actionable insights into your internet connection's status. Perfect for improving user experience by dynamically adapting to network quality.",
   "main": "dist/useNetworkQuality.js",
   "types": "dist/useNetworkQuality.d.ts",
   "files": [
@@ -30,12 +30,15 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/en-atul/react-network-quality.git"
+    "url": "https://github.com/en-atul/react-netpulse.git"
   },
   "bugs": {
-    "url": "https://github.com/en-atul/react-network-quality/issues"
+    "url": "https://github.com/en-atul/react-netpulse/issues"
   },
-  "homepage": "https://github.com/en-atul/react-network-quality#readme",
+  "homepage": "https://github.com/en-atul/react-netpulse#readme",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0"
   },
