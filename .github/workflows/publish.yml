@@ -39,38 +39,6 @@ jobs:
       - name: Install dependencies using pnpm
         run: pnpm install --no-frozen-lockfile
 
-      - name: Determine Version Type
-        id: versioning
-        run: |
-          if git log -1 --pretty=%B | grep -q "#major"; then
-            echo "VERSION_TYPE=major" >> $GITHUB_ENV
-          elif git log -1 --pretty=%B | grep -q "#minor"; then
-            echo "VERSION_TYPE=minor" >> $GITHUB_ENV
-          else
-            echo "VERSION_TYPE=patch" >> $GITHUB_ENV
-          fi
-
-      - name: Auto version bump & tag
-        id: version_bump
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-          # Bump version
-          pnpm version --$VERSION_TYPE --no-git-tag-version
-
-          # Extract new version using jq safely
-          NEW_VERSION=$(jq -r .version package.json)
-          echo "VERSION=$NEW_VERSION" >> $GITHUB_ENV  # Store in GitHub Actions env
-
-          # Commit and push changes
-          git add package.json pnpm-lock.yaml
-          git commit -m "🚀 Auto bump to v$NEW_VERSION"
-          git tag v$NEW_VERSION
-          git push origin HEAD:${{ github.ref }} --tags
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Get Release Notes from Commits
         id: changelog
         run: |
