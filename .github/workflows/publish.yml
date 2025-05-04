@@ -28,7 +28,7 @@ jobs:
         run: npm install -g pnpm
 
       - name: Cache pnpm modules
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.pnpm-store
           key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
@@ -68,7 +68,7 @@ jobs:
           git tag v$NEW_VERSION
           git push origin HEAD:${{ github.ref }} --tags
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Automatically available
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Get Release Notes from Commits
         id: changelog
@@ -84,14 +84,14 @@ jobs:
           name: Release v${{ env.VERSION }}
           body: ${{ env.CHANGELOG }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Automatically available
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish to GitHub Packages
         run: pnpm publish --registry=https://npm.pkg.github.com/
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub token for publishing to GitHub Packages
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish to NPM
         run: pnpm publish --access public
         env:
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} # The npm token for publishing to npm
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
